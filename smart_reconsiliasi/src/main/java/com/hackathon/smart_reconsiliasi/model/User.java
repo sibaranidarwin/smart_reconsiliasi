@@ -1,5 +1,6 @@
 package com.hackathon.smart_reconsiliasi.model;
 
+import com.example.mini_project.model.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
