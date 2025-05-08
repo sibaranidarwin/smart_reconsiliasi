@@ -1,11 +1,8 @@
 package com.hackathon.smart_reconsiliasi.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
-@Builder
 @Data
-
 public class BaseResponse {
     private String responseMessage;
     private String responseCode;
