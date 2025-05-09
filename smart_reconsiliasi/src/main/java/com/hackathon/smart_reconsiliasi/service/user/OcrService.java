@@ -131,6 +131,8 @@ public class OcrService {
                     datainv.setOrderDate(null);
                     datainv.setStatus(Invoice.ApprovalStatus.REJECTED);
                     log.warn("Duplicate invoice number detected: {}", invoice);
+                    res.setResponseCode("01");
+                    res.setResponseMessage("Failed");
                 } else {
                     datainv.setInvoiceNumber(invoice);
                     datainv.setOrderDate(DateUtil.parseTanggal(tanggal));
@@ -139,6 +141,8 @@ public class OcrService {
                         detail.setInvoice(datainv);
                     }
                     datainv.setInvoiceDetails(detailList);
+                    res.setResponseCode("00");
+                    res.setResponseMessage("Success");
                 }
 
                 // Set waktu unggah dan user (baik valid atau ditolak tetap disimpan)
@@ -154,8 +158,6 @@ public class OcrService {
                 invoiceRepository.save(datainv);
 
                 // Set ke response
-                res.setResponseCode("00");
-                res.setResponseMessage("Success");
                 res.setInvoiceNumber(invoice);
                 res.setOrderDate(tanggal);
 
